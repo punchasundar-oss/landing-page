@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Hero Component Styles
+   Mobile-first responsive layout with light/dark theme support.
+   ========================================================================== */
+
+/* ---------- Design Tokens ---------- */
+
+:root {
+    --hero-bg: #ffffff;
+    --hero-text: #1a1a2e;
+    --hero-text-secondary: #4a4a68;
+    --hero-cta-primary-bg: #2563eb;
+    --hero-cta-primary-hover-bg: #1d4ed8;
+    --hero-cta-primary-text: #ffffff;
+    --hero-cta-secondary-bg: transparent;
+    --hero-cta-secondary-hover-bg: #eff6ff;
+    --hero-cta-secondary-border: #2563eb;
+    --hero-cta-secondary-text: #2563eb;
+    --hero-focus-ring: #2563eb;
+    --hero-image-fallback-bg: #e2e8f0;
+    --hero-max-width: 1200px;
+    --hero-padding: 1.5rem;
+}
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--hero-text);
+    background: var(--hero-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- Hero Section ---------- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--hero-padding);
+    background: var(--hero-bg);
+}
+
+/* ---------- Hero Container ---------- */
+
+.hero__container {
+    width: 100%;
+    max-width: var(--hero-max-width);
+    margin: 0 auto;
+}
+
+/* ---------- Hero Content (Text Column) ---------- */
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ---------- Typography ---------- */
+
+.hero__headline {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--hero-text);
+    letter-spacing: -0.02em;
+}
+
+.hero__subheadline {
+    margin: 0;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    line-height: 1.6;
+    color: var(--hero-text-secondary);
+    max-width: 40ch;
+}
+
+/* ---------- CTA Group ---------- */
+
+.hero__cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ---------- CTA Base ---------- */
+
+.hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    text-align: center;
+}
+
+/* Focus: visible outline for keyboard, suppressed for mouse */
+.hero__cta:focus {
+    outline: 3px solid var(--hero-focus-ring);
+    outline-offset: 2px;
+}
+
+.hero__cta:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.hero__cta:focus-visible {
+    outline: 3px solid var(--hero-focus-ring);
+    outline-offset: 2px;
+}
+
+/* ---------- Primary CTA ---------- */
+
+.hero__cta--primary {
+    background: var(--hero-cta-primary-bg);
+    border-color: var(--hero-cta-primary-bg);
+    color: var(--hero-cta-primary-text);
+}
+
+.hero__cta--primary:hover {
+    background: var(--hero-cta-primary-hover-bg);
+    border-color: var(--hero-cta-primary-hover-bg);
+}
+
+.hero__cta--primary:active {
+    background: #1e40af;
+    border-color: #1e40af;
+}
+
+/* ---------- Secondary CTA ---------- */
+
+.hero__cta--secondary {
+    background: var(--hero-cta-secondary-bg);
+    border-color: var(--hero-cta-secondary-border);
+    color: var(--hero-cta-secondary-text);
+}
+
+.hero__cta--secondary:hover {
+    background: var(--hero-cta-secondary-hover-bg);
+}
+
+.hero__cta--secondary:active {
+    background: #dbeafe;
+}
+
+/* ---------- Visual / Image Container ---------- */
+
+.hero__visual {
+    margin-top: 2.5rem;
+    aspect-ratio: 3 / 2;
+    background: var(--hero-image-fallback-bg);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hide broken image icon when load fails; the parent's background shows through. */
+.hero__image--error {
+    display: none;
+}
+
+/* ---------- Dark Theme ---------- */
+
+.hero[data-hero-theme="dark"] {
+    --hero-bg: #1a1a2e;
+    --hero-text: #f1f5f9;
+    --hero-text-secondary: #cbd5e1;
+    --hero-cta-secondary-hover-bg: rgba(37, 99, 235, 0.15);
+    --hero-image-fallback-bg: #2a2a4a;
+}
+
+.hero[data-hero-theme="dark"] .hero__cta--secondary:active {
+    background: rgba(37, 99, 235, 0.25);
+}
+
+/* ---------- Desktop Layout (≥ 1024px) ---------- */
+
+@media (min-width: 1024px) {
+    .hero {
+        padding: 2rem;
+    }
+
+    .hero__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .hero__content {
+        gap: 2rem;
+    }
+
+    .hero__cta-group {
+        flex-direction: row;
+    }
+
+    .hero__cta {
+        width: auto;
+    }
+
+    .hero__visual {
+        margin-top: 0;
+    }
+}
