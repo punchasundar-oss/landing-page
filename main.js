@@ -80,6 +80,15 @@
     }
 
     /**
+     * Handle hero image load failure by hiding the broken <img> element.
+     * The parent .hero__visual background colour remains visible as a fallback.
+     * @param {HTMLImageElement} img - The image that failed to load.
+     */
+    function handleImageError(img) {
+        img.classList.add('hero__image--error');
+    }
+
+    /**
      * Initialise a single hero element: read config, bind CTA handlers.
      * @param {HTMLElement} heroEl - The .hero root element.
      */
@@ -98,6 +107,14 @@
         if (secondaryCta) {
             secondaryCta.addEventListener('click', function (e) {
                 handleSecondaryClick(e, heroEl, cfg);
+            });
+        }
+
+        /* Bind image error handler for graceful visual fallback. */
+        var img = heroEl.querySelector('.hero__image');
+        if (img) {
+            img.addEventListener('error', function () {
+                handleImageError(img);
             });
         }
     }

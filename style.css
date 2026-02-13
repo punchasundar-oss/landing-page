@@ -184,6 +184,11 @@ img {
     object-fit: cover;
 }
 
+/* Hide broken image icon when load fails; the parent's background shows through. */
+.hero__image--error {
+    display: none;
+}
+
 /* ---------- Dark Theme ---------- */
 
 .hero[data-hero-theme="dark"] {
