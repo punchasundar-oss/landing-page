@@ -1,0 +1,23 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "node hero.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/punchasundar-oss/landing-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/punchasundar-oss/landing-page/issues"
+  },
+  "homepage": "https://github.com/punchasundar-oss/landing-page#readme",
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  }
+}
