@@ -7,6 +7,7 @@ Static marketing landing page built with vanilla HTML, CSS, and JavaScript (no f
 - `index.html` — Main landing page with hero section
 - `style.css` — Mobile-first responsive styles with light/dark theme via CSS custom properties
 - `main.js` — CTA scroll/navigation behaviour via data-attribute configuration
+- `hero.test.js` — Unit tests (41 tests, run via `npm test`)
 
 ## Conventions
 - **CSS naming**: BEM methodology (`hero__content`, `hero__cta--primary`)
