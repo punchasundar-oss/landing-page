@@ -5,7 +5,7 @@ Static marketing landing page built with vanilla HTML, CSS, and JavaScript (no f
 
 ## Project Structure
 - `index.html` — Main landing page with hero section
-- `style.css` — Stylesheet (referenced, to be created)
+- `style.css` — Mobile-first responsive styles with light/dark theme via CSS custom properties
 - `main.js` — Client-side behaviour (to be created)
 
 ## Conventions
